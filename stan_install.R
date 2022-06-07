@@ -28,6 +28,9 @@ remove.packages(c("StanHeaders", "rstan"))
 install.packages("rstan", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
 
 #Verifying installation
+# Generating some fake data
+set.seed(123)
+y <- rbinom(30, size = 1, prob = 0.2016)
 library(rstan)
 example(stan_model, package = "rstan", run.dontrun = TRUE)
 
@@ -39,3 +42,23 @@ install.packages("tidybayes")
 install.packages("gapminder")
 
 install.packages("rstanarm")
+
+#testing
+library(rstan)
+
+model_string <- "
+data {
+  int n;
+  int y[n];
+}
+parameters {
+  real<lower=0, upper=1> theta;
+}
+model {
+  y ~ bernoulli(theta);
+}"
+
+stan_samples <- stan(model_code = model_string, data = list(y = y, n = length(y)) )
+stan_samples
+traceplot(stan_samples)
+plot(stan_samples)
