@@ -28,9 +28,7 @@ remove.packages(c("StanHeaders", "rstan"))
 install.packages("rstan", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
 
 #Verifying installation
-# Generating some fake data
-set.seed(123)
-y <- rbinom(30, size = 1, prob = 0.2016)
+
 library(rstan)
 example(stan_model, package = "rstan", run.dontrun = TRUE)
 
@@ -44,6 +42,9 @@ install.packages("gapminder")
 install.packages("rstanarm")
 
 #testing
+# Generating some fake data
+set.seed(123)
+y <- rbinom(30, size = 1, prob = 0.2016)
 library(rstan)
 
 model_string <- "
