@@ -18,7 +18,9 @@ If you’ve never run any compiled languages before, the initial setup can take 
 Once you’ve configured your toolchain and installed rstan, you can test to make sure everything is working by opening R and running
 
 library(rstan)
+
 example(stan_model, package = "rstan", run.dontrun = TRUE)
+
 If you read through and followed the instructions and done some googling and still are having trouble feel free to get in touch (danovan@uw.edu) and I’ll try and help you out.
 
 Additional packages that will be useful if you don’t have them installed
