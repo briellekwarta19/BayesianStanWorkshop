@@ -31,3 +31,5 @@ install.packages("tidybayes")
 install.packages("gapminder")
 
 install.packages("rstanarm")
+
+Check out: https://github.com/DanOvando/learn-stan
